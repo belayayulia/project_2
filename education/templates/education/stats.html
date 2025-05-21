@@ -1,0 +1,19 @@
+{% extends "education/base.html" %}
+
+{% block content %}
+<h2>Статистика по баллам</h2>
+<table>
+    <tr>
+        <th>Средний балл</th>
+        <th>Максимальный балл</th>
+        <th>Минимальный балл</th>
+        <th>Стандартное отклонение</th>
+    </tr>
+    <tr>
+        <td>{{ stats.avg_score|floatformat:2 }}</td>
+        <td>{{ stats.max_score }}</td>
+        <td>{{ stats.min_score }}</td>
+        <td>{{ stats.std_dev|floatformat:2 }}</td>
+    </tr>
+</table>
+{% endblock %}

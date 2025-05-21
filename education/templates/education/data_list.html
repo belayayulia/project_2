@@ -1,0 +1,36 @@
+{% extends "education/base.html" %}
+
+{% block content %}
+<h2>Все записи</h2>
+
+<div class="filters">
+    <form method="get">
+        <select name="program">
+            <option value="">Все программы</option>
+            {% for program in unique_programs %}
+                <option value="{{ program }}" {% if request.GET.program == program %}selected{% endif %}>
+                    {{ program }}
+                </option>
+            {% endfor %}
+        </select>
+        <button type="submit">Фильтровать</button>
+    </form>
+</div>
+
+<table>
+    <tr>
+        <th><a href="?sort=student_name">Студент</a></th>
+        <th><a href="?sort=program_name">Программа</a></th>
+        <th><a href="?sort=year">Год</a></th>
+        <th><a href="?sort=score">Балл</a></th>
+    </tr>
+    {% for program in programs %}
+    <tr>
+        <td>{{ program.student_name }}</td>
+        <td>{{ program.program_name }}</td>
+        <td>{{ program.year }}</td>
+        <td>{{ program.score }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

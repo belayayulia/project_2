@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Образовательная программа</title>
+    <style>
+        nav { background: #333; padding: 1rem; }
+        nav a { color: white; margin-right: 2rem; text-decoration: none; }
+        table { border-collapse: collapse; width: 100%; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #f2f2f2; }
+        .container { margin: 2rem auto; max-width: 1200px; }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="{% url 'program_form' %}">Добавить данные</a>
+        <a href="{% url 'data_list' %}">Все записи</a>
+        <a href="{% url 'stats' %}">Статистика</a>
+    </nav>
+    <div class="container">
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html>
